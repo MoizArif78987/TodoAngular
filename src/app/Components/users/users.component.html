@@ -1,0 +1,32 @@
+<small *ngIf="status===1">*Data has been sent successfully</small>
+<span *ngIf="status===0">*Error Occured : {{error | json}}</span>
+
+<div class="container">
+    <h2>Users</h2>
+    <input type="text" placeholder="Search User" [(ngModel)]="search">
+    <div *ngFor="let user of users | filter:search " class="data" >
+        <h2> <span> Name: </span>{{ user.name | shorten }}</h2>
+        <h3><span>As: </span>{{user.as}}</h3>
+        <h3><span> Joining date: </span>{{ user.date |uppercase| date:'mediumDate'  }}</h3>
+        <div class="buttons">
+            <button class="edit-btn-single" (click)="Promote(user)" [disabled]="disableDelete">Promote</button>
+            <button class="delete-btn-single" (click)="DeleteOne(user.key)" [disabled]="disableDelete">Delete</button>
+        </div>
+    </div>
+</div>
+
+<div class="container form">
+    <h2>Add a User</h2>
+    <form [formGroup]="addUserForm" (ngSubmit)="onAddUserClick()">
+        <input type="text" placeholder="Enter Name" formControlName="name" [ngClass]="">
+        <span *ngIf="addUserForm.get('name').invalid && addUserForm.get('name').touched">
+            Name is required
+        </span>
+        <input type="date" placeholder="Enter Joining Date" formControlName="date">
+        <span *ngIf="addUserForm.get('date').invalid && addUserForm.get('date').touched">
+            Date is required
+        </span>
+        <button type="submit" [disabled]="disable">Add User</button>
+    </form>
+    <button class="delete-btn" (click)="DeleteAllUsersClick()">Delete All User</button>
+</div>

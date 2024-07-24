@@ -1,0 +1,81 @@
+.container {
+    border: 1px solid black;
+    margin: 10px 100px 0px 100px;
+    text-align: left;
+    padding: 10px;
+}
+
+.container>input {
+    display: block;
+    margin: 10px auto;
+}
+
+.data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-btn-single {
+    background-color: red;
+    margin-right: 5px;
+}
+
+.edit-btn-single {
+    background-color: rgb(3, 182, 128);
+    margin-right: 5px;
+}
+
+span {
+    color: red;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.container>h2 {
+    text-align: center;
+}
+
+input {
+    width: 300px;
+    height: 35px;
+    padding-left: 10px;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+button {
+    padding: 10px;
+    background-color: orangered;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-color: transparent;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+small {
+    color: green
+}
+
+.delete-btn {
+    background-color: red;
+    display: block;
+    margin: 10px auto;
+}
